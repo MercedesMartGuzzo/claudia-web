@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+:root {
+    scroll-behavior: smooth;
+
+    /* VARIABLES */
+    --ff-figtree: 'Figtree', sans-serif;
+    --ff-inconsolata: 'Inconsolata', monospace;
+    --ff-noto-sans: 'Noto Sans', sans-serif;
+    --ff-satisfy: 'Satisfy', cursive;
+    --clr-back: #003C43;
+    --clr-title: #E3FEF7;
+    --clr-back2: #135D66;
+    --cl-back3: #77B0AA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    color: var(--clr-title);
+    font-family: var(--ff-satisfy);
+    justify-content: center;
+    display: flex;
+   ;
+    font-size: 3rem;
+}
+.uno{
+    font-family: var(--ff-inconsolata);
+}
+.row2 p{
+    font-family: var(--ff-inconsolata);
+    color: var(--clr-title);
+    font-size: 1.1rem;
+}
+.dos{
+    font-family: var(--ff-noto-sans);
+}
+
+.row,.row2,.row3,.row4{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    /* margin-top: 4rem; */
+    background-color: var(--clr-back);
+    padding: 2rem;
+}
+.row p{
+    font-family: var(--ff-noto-sans);
+    color: var(--clr-title);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.row2{
+    background-color: var(--clr-back2);
+}
+.row3{
+    background-color: var(--cl-back3);
+}
+.container{
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.row4{
+    background-color: var(--clr-title);
+}
+.row4 h1{
+    color: var(--clr-back2);
+}
+.section{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    padding: 2rem;
+    scroll-margin-top: 2rem;
+}
+.section-title{
+    font-family: var(--ff-satisfy);
+    color: var(--clr-back);
+
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.section.inicio{
+    padding-top: 5rem;
+}
