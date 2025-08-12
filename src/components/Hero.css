@@ -16,8 +16,13 @@
 } 
 .hero {
     position: relative;
-    height: 100vh;
-    background: #fce4ec;
+    width: 100%;
+    height: 100vh; /* pantalla completa */
+    background-image: url('/acuarela.png'); /* ruta desde public */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    clip-path: circle(0% at 50% 50%); /* estado inicial */
 }
 
 .hero-content {
