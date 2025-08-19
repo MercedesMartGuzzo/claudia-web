@@ -8,6 +8,7 @@ export default function Hero() {
     return (
         <section className="hero container" id="inicio">
             <div>
+                <h1>Claudia Sereni</h1>
              {/*    <p className="hero-p">
                     Mi enfoque integral en la gestión cultural abarca desde la producción hasta la interpretación musical. Como
                     manager, productora y violoncellista, lidero proyectos que conectan a los artistas con oportunidades claves
