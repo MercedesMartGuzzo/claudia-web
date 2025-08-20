@@ -19,7 +19,7 @@ function Header() {
         <div className="header">
             <nav className="navbar">
                 <div className="logo">
-                    <img src="vintage.png" alt="logo"/>
+                    <img src="icon2_.png" alt="logo"/>
                 </div>
 
                 {/* Menú Desktop */}
