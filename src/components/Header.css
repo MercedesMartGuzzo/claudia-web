@@ -5,6 +5,7 @@
     width: 100%;
     transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
     z-index: 1100;
+  flex-direction: column;
 }
 
 /* Ocultar cuando scrollea hacia abajo */
