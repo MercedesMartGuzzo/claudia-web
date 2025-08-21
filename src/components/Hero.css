@@ -1,36 +1,35 @@
 .hero {
-  /*  background-color:#f9d5d3;   */
+  
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-   overflow: hidden;
-position: relative;/* 
-  background: url("/5297135.jpg");  */
+  overflow: hidden;
+  position: relative;
 }
 
 
 
-.hero  h1{
+.hero h1 {
   font-family: var(--ff-inconsolata);
   display: flex;
   flex-direction: row;
-  justify-content:start ;
+  justify-content: start;
   align-self: center;
   color: var(--clr-back);
   padding-bottom: 2rem;
-position: absolute;
-font-size: 2rem;
+  position: absolute;
+  font-size: 2rem;
   left: 5%;
   bottom: 10%;
 }
 
 .word {
   display: inline-block;
-  margin-right: 0.5rem; /* espacio entre Claudia y Sereni */
+  margin-right: 0.5rem;
 }
 
- .waves-japan {
+.waves-japan {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -41,9 +40,10 @@ font-size: 2rem;
 .wave-svg {
   position: absolute;
   left: 0;
-  width: 200%; 
-  height: 20%; 
-} 
+  width: 200%;
+  height: 20%;
+}
+
 /* .waves-japan {
   position: absolute;
   bottom: 0;
@@ -59,10 +59,3 @@ font-size: 2rem;
   height: 5%; 
 }
  */
-
-
-
-
-
-
-

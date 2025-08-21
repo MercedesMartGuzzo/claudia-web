@@ -12,24 +12,25 @@ export default function Mannager() {
     useLayoutEffect(() => {
         if (!textRef.current) return;
 
-        const split = new SplitType(textRef.current, { types: "chars" });
+        // ahora solo se divide por palabras
+        const split = new SplitType(textRef.current, { types: "words" });
 
-        // Inicialmente el texto visible pero con color base
-        gsap.set(split.chars, { color: "var(--clr-title)" });
+        // Inicialmente todas las palabras visibles pero con color base
+        gsap.set(split.words, { color: "var(--clr-title)" });
 
-        // Timeline con ScrollTrigger que ilumina las letras
+        // Timeline con ScrollTrigger que ilumina palabra por palabra
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: textRef.current,
                 start: "top 80%",
                 end: "bottom 20%",
-                scrub: 4, // velocidad de seguimiento del scroll
+                scrub: 4,
             },
         });
 
-        tl.to(split.chars, {
+        tl.to(split.words, {
             color: "var(--clr-back)",
-            stagger: 0.05,
+            stagger: 0.1,  // un poco más largo para palabras
             duration: 0.6,
             ease: "power1.out",
         });
