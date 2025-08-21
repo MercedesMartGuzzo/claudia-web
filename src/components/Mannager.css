@@ -1,0 +1,34 @@
+/* .mannager-p {
+  font-size: 1rem;
+  font-family: var(--ff-noto-sans);
+
+} */
+/* .mannager-p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  margin: 0 auto;
+  color: var(--clr-title);
+}
+
+.mannager-p .char {
+  display: inline-block;
+}
+ */
+
+
+.mannager-p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+
+  margin: 0 auto;
+  color: var(--clr-title); /* color inicial de todas las letras */
+}
+
+.mannager-p .char {
+  display: inline-block; /* necesario para animar cada letra */
+}
+
+
+.wrapp-mannager {
+  margin-top: 2rem;
+}
