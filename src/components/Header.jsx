@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
- /*  import { List, X } from "react-bootstrap-icons"; */  
 import { gsap } from "gsap";
 import "./Header.css";
 
@@ -16,13 +15,12 @@ function Header() {
             const currentScroll = window.scrollY;
 
             if (currentScroll > lastScroll && currentScroll > 50) {
-                setHidden(true); // bajando → ocultar
-                setMenuOpen(false); // cerrar menú al scrollear
+                setHidden(true); 
+                setMenuOpen(false); 
             } else {
-                setHidden(false); // subiendo → mostrar
+                setHidden(false); 
             }
-
-            setScrolled(currentScroll > 50); // cambia fondo después de 50px
+            setScrolled(currentScroll > 50); 
             setLastScroll(currentScroll);
         };
 
@@ -96,7 +94,7 @@ function Header() {
                 </div>
 
                 {/* Botón hamburguesa */}
-                 {<button
+                {<button
                     className={`menu-btn ${menuOpen ? "open" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
@@ -104,15 +102,7 @@ function Header() {
                     {<span></span>}
                     {<span></span>}
                     {<span></span>}
-                </button>} 
-
-             {/*           <button
-                    className="menu-btn"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-                >
-                    {menuOpen ? <X size={32} /> : <List size={32} />}
-                </button>   */}
+                </button>}
 
                 {/* Menú móvil */}
                 <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
@@ -137,12 +127,3 @@ function Header() {
 }
 
 export default Header;
-
-
-{/*          <button
-                    className="menu-btn"
-                    onClick={() => setMenuOpen(!menuOpen)}
-                    aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-                >
-                    {menuOpen ? <X size={32} /> : <List size={32} />}
-                </button> */}

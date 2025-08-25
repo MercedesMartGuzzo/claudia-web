@@ -23,9 +23,9 @@ export default function Presentacion() {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 60%",     
-                    end: "top 50%",      
-                    scrub: 4,         
+                    start: "top 70%",     
+                    end: "top 40%",      
+                    scrub: 4,       
                 },
             }
         );
