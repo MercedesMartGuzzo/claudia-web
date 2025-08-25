@@ -1,11 +1,11 @@
-
+/* 
 .mannager-p {
   font-size: 1.2rem;
   line-height: 1.8rem;
   margin: 0 auto;
   color: var(--clr-title); 
-  word-break: normal;       /* deja que se rompa solo en espacios */
-  overflow-wrap: normal;    /* evita cortes raros */
+  word-break: normal;       
+  overflow-wrap: normal;    
   white-space: normal;
 }
 
@@ -15,9 +15,11 @@
 
 .wrapp-mannager {
   margin-top: 2rem;
+
 }
 
 .mannager-p span {
   display: inline-block;
 
 }
+ */

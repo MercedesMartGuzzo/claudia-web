@@ -1,35 +1,3 @@
-/* import { useEffect } from "react";
-import { gsap } from "gsap";
-import SplitType from "split-type";
-import "./Hero.css";
-
-export default function Hero() {
-    useEffect(() => {
-        // Divide en palabras y caracteres
-        const split = new SplitType("h1", { types: "words, chars" });
-
-        // Animar palabra por palabra
-        split.words.forEach((word, i) => {
-            gsap.from(word.querySelectorAll(".char"), {
-                opacity: 0,
-                y: 50,
-                stagger: 0.05,
-                duration: 0.6,
-                ease: "circ.in",
-                delay: i * 0.8,
-            });
-        });
-    }, []);
-
-    return (
-        <section className="hero" id="inicio">
-            <div>
-                <h1>Claudia Sereni</h1>
-            </div>
-        </section>
-    );
-}
- */
 
 import { useEffect } from "react";
 import { gsap } from "gsap";

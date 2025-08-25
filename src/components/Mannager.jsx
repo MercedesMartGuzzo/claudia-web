@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react";
+/* import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
@@ -46,3 +46,4 @@ export default function Mannager() {
         </div>
     );
 }
+ */
