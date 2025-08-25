@@ -15,17 +15,17 @@ export default function Presentacion() {
 
         gsap.fromTo(
             el,
-            { x: 300, opacity: 0 },  // empieza fuera a la derecha
+            { x: 300, opacity: 0 },  
             {
-                x: 0,                   // termina centrado
+                x: 0,                 
                 opacity: 1,
                 duration: 1,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 60%",     // cuando el top del elemento esté al 80% de la ventana
-                    end: "top 50%",       // hasta el top esté al 50%
-                    scrub: 4,          // permite animación ligada al scroll
+                    start: "top 60%",     
+                    end: "top 50%",      
+                    scrub: 4,         
                 },
             }
         );

@@ -6,7 +6,7 @@
     transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
     z-index: 1100;
     flex-direction: column;
-    align-items: center;
+     align-items: center; 
 }
 
 /* Ocultar cuando scrollea hacia abajo */
@@ -17,7 +17,7 @@
 /* Fondo cuando se scrollea */
 .header.scrolled {
     background: rgba(255, 255, 255, 0.6);
-    /*  background: rgba(255, 255, 255, 0.95); */
+
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -52,7 +52,7 @@
     cursor: pointer;
     color: var(--clr-back2);
     z-index: 1200;
-} */
+}  */
  .logo:hover{
 cursor: pointer;
  }
@@ -67,8 +67,8 @@ cursor: pointer;
   border: none;
   cursor: pointer;
   padding: 0;
-  z-index: 1100; /* <-- Asegura que quede sobre el menú */
-  position: relative; /* necesario para que z-index funcione */
+  z-index: 1100; 
+  position: relative;
 }
 
 .menu-btn span {
@@ -76,12 +76,12 @@ cursor: pointer;
   width: 100%;
   border-radius: 1px;
   background: #0f4d25;
-  /* solo animamos transform y opacity */
+
   transition: transform 0.4s ease, opacity 0.4s ease;
-  transform-origin: center; /* importante para rotaciones */
+  transform-origin: center; 
 }
 
-/* Grosor fijo */
+
 .menu-btn span:nth-child(1) {
   height: 2px;
    background-color: #3c8f9c; 
@@ -93,7 +93,6 @@ cursor: pointer;
 }
 
 
-/* Animación cuando el menú está abierto */
 .menu-btn.open span:nth-child(1) {
   transform: rotate(45deg) translate(9px, 5px) scaleY(1);
   background-color: var(--clr-back2);
@@ -105,7 +104,7 @@ cursor: pointer;
 
 .menu-btn.open span:nth-child(3) {
   transform: rotate(-45deg) translate(9px, -5.1px)scaleY(1); 
-}
+} 
 /* Menú */
 .mobile-menu {
     position: absolute;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-/* import { List, X } from "react-bootstrap-icons"; */
+ /*  import { List, X } from "react-bootstrap-icons"; */  
 import { gsap } from "gsap";
 import "./Header.css";
 
@@ -96,23 +96,23 @@ function Header() {
                 </div>
 
                 {/* Botón hamburguesa */}
-                <button
+                 {<button
                     className={`menu-btn ${menuOpen ? "open" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
                 >
-                 {   <span></span>}
-                  {  <span></span>}
-                   { <span></span>}
-                </button>
+                    {<span></span>}
+                    {<span></span>}
+                    {<span></span>}
+                </button>} 
 
-                {/*          <button
+             {/*           <button
                     className="menu-btn"
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
                 >
                     {menuOpen ? <X size={32} /> : <List size={32} />}
-                </button> */}
+                </button>   */}
 
                 {/* Menú móvil */}
                 <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
@@ -137,3 +137,12 @@ function Header() {
 }
 
 export default Header;
+
+
+{/*          <button
+                    className="menu-btn"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+                >
+                    {menuOpen ? <X size={32} /> : <List size={32} />}
+                </button> */}
