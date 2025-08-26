@@ -4,6 +4,7 @@ import { gsap } from "gsap";
 import SplitType from "split-type";
 import "./Hero.css";
 
+
 export default function Hero() {
     useEffect(() => {
         // Animación h1
@@ -25,7 +26,7 @@ export default function Hero() {
             gsap.to(wave, {
                 xPercent: -50,
                 repeat: -1,
-                duration: 8 + i * 2.5, // velocidad distinta por línea
+                duration: 8 + i * 2.5, 
                 ease: "linear",
             });
         });
@@ -57,5 +58,7 @@ export default function Hero() {
                 ))}
             </div>
         </section>
+       
+       
     );
 }

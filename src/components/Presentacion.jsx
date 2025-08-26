@@ -10,25 +10,45 @@ export default function Presentacion() {
 
     useLayoutEffect(() => {
         if (!wrapperRef.current) return;
-
         const el = wrapperRef.current;
 
+        // Fade in inicial
         gsap.fromTo(
             el,
-            { x: 300, opacity: 0 },  
+            { opacity: 0, y: -50 },
             {
-                x: 0,                 
                 opacity: 1,
+                y: 0,
                 duration: 1,
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 70%",     
-                    end: "top 40%",      
-                    scrub: 4,       
+                    start: "top 70%",
+                    end: "top 40%",
+                    toggleActions: "play none none reverse",
                 },
             }
         );
+
+        // Fade out y movimiento hacia abajo, usando Mannager como trigger
+        const fadeOutTrigger = gsap.to(el, {
+            y: 100,
+            opacity: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: ".mannager",
+                start: window.innerWidth < 768 ? "top top" : "center center",
+                // en móvil dispara cuando Mannager top toca top del viewport
+                // en escritorio cuando Mannager está al centro
+                end: "bottom top",
+                scrub: true,
+            },
+        });
+
+        // Limpiar ScrollTrigger al desmontar
+        return () => {
+            fadeOutTrigger.scrollTrigger.kill();
+        };
     }, []);
 
     return (

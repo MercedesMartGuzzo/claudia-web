@@ -22,20 +22,28 @@
     padding: 0;
     box-sizing: border-box;
 }
-.container{
-    margin: 0  auto;
+
+.container {
+    margin: 0 auto;
     max-width: 1000px;
 }
 
-.section{
+.section {
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: start;
     padding: 2rem;
     scroll-margin-top: 2rem;
+    min-height: 100vh;
+    margin: .5rem;
+    border-radius: 5px;
+  
 }
-.section-title{
+
+
+
+.section-title {
     font-family: var(--ff-inconsolata);
     color: var(--clr-back);
     margin-inline-start: 0;
@@ -45,29 +53,48 @@
 }
 
 /********* SECCIONES *********/
-.mannager{
-    background-color: var(--cl-back3);
-    min-height: 100vh;
+.presentacion {
+    position: sticky;
+    top: 0;
 }
-.cellista{
+
+.mannager {
+    background-color: var(--cl-back3);
+    min-height: 90vh;
+    position: relative;
+    z-index: 2;
+    /* se apila arriba */
+}
+
+.cellista {
     background-color: var(--clr-back);
-    min-height: 100vh;
+    min-height: 90vh;
+    z-index: 2;
 }
-.cellista .section-title{
+
+.cellista .section-title {
     color: var(--clr-title);
 }
-.clases{
+
+.clases {
     background-color: var(--clr-back2);
-    min-height: 100vh;
+    min-height: 90vh;
+    z-index: 2;
 }
-.clases .section-title{
+
+
+.clases .section-title {
     color: var(--clr-title);
 }
-.bio{
+
+.bio {
     background-color: var(--cl-back3);
-    min-height: 100vh;
+    min-height:90vh;
+    z-index: 2;
 }
-.contacto{
-    background-color: var(--cl-back);
-    min-height: 100vh;
+
+.contacto {
+    background-color: var(--clr-title);
+    min-height: 90vh;
+    z-index: 99;
 }
