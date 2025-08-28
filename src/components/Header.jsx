@@ -107,7 +107,7 @@ function Header() {
                 {/* Menú móvil */}
                 <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
                     <ul>
-                        {["Inicio", "Mannager", "Cellista", "Clases", "Bio", "Contacto"].map(
+                        {["Inicio", "Management","Produccion", "Cellista","Contacto"].map(
                             (item) => (
                                 <li key={item}>
                                     <a

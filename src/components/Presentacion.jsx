@@ -12,6 +12,9 @@ export default function Presentacion() {
         if (!wrapperRef.current) return;
         const el = wrapperRef.current;
 
+        // ✅ Chequeamos el ancho de pantalla
+        const isMobile = window.innerWidth < 768;
+
         // Fade in inicial
         gsap.fromTo(
             el,
@@ -23,29 +26,27 @@ export default function Presentacion() {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: "top 70%",
-                    end: "top 40%",
-                    toggleActions: "play none none reverse",
+                    start: isMobile ? "top 95%" : "top 80%", 
+                    end: isMobile ? "bottom 0%" : "top 0%",  
+                    toggleActions: "play reverse play reverse",
                 },
             }
         );
 
-        // Fade out y movimiento hacia abajo, usando Mannager como trigger
+        // Fade out + movimiento hacia abajo
         const fadeOutTrigger = gsap.to(el, {
             y: 100,
             opacity: 0,
             ease: "power2.out",
             scrollTrigger: {
                 trigger: ".mannager",
-                start: window.innerWidth < 768 ? "top top" : "center center",
-                // en móvil dispara cuando Mannager top toca top del viewport
-                // en escritorio cuando Mannager está al centro
+                start: isMobile ? "top top" : "center center",
                 end: "bottom top",
                 scrub: true,
             },
         });
 
-        // Limpiar ScrollTrigger al desmontar
+        // cleanup
         return () => {
             fadeOutTrigger.scrollTrigger.kill();
         };
@@ -54,7 +55,13 @@ export default function Presentacion() {
     return (
         <div className="wrapp-presentacion container" ref={wrapperRef}>
             <p className="presentacion-p">
-                Mi enfoque integral en la gestión cultural abarca desde la producción hasta la interpretación musical. Como manager, productora y violoncellista, lidero proyectos que conectan a los artistas con oportunidades claves para su desarrollo. Al seguir activa como violoncellista freelance y docente, me mantengo en constante contacto con el mundo artístico, lo que me permite aportar una visión fresca y auténtica a cada proyecto.
+                Mi enfoque integral en la gestión cultural abarca desde la producción
+                hasta la interpretación musical. Como manager, productora y
+                violoncellista, lidero proyectos que conectan a los artistas con
+                oportunidades claves para su desarrollo. Al seguir activa como
+                violoncellista freelance y docente, me mantengo en constante contacto con
+                el mundo artístico, lo que me permite aportar una visión fresca y
+                auténtica a cada proyecto.
             </p>
         </div>
     );

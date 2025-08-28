@@ -1,0 +1,15 @@
+.footer {
+    background: var(--clr-back);
+    color: var(--clr-title);
+    font-family: var(--ff-inconsolata);
+    /*    min-height: 100vh; */
+    margin: 1rem;
+    margin-bottom: 0;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 3rem 1rem;
+    z-index: 1;
+}

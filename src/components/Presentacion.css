@@ -12,8 +12,7 @@
     font-size: 1.2rem;
     line-height: 1.8rem;
     color: var(--clr-back);
-    text-align: start;
-
+    text-align: center;
 }
 
 .wrapp-presentacion {
@@ -23,10 +22,10 @@
     border-radius: 5px;
 }
 
-.presentacion-p span {
+/* .presentacion-p span {
     display: inline-block;
 }
-
+ */
 @media (min-width: 1200px) {
     .presentacion {
         justify-content: center;

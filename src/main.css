@@ -36,9 +36,9 @@
     padding: 2rem;
     scroll-margin-top: 2rem;
     min-height: 100vh;
-    margin: .5rem;
+    margin: 1rem;
     border-radius: 5px;
-  
+
 }
 
 
@@ -59,17 +59,21 @@
 }
 
 .mannager {
-    background-color: var(--cl-back3);
-    min-height: 90vh;
+    background-color: var(--clr-back);
+    min-height: 100vh;
     position: relative;
     z-index: 2;
-    /* se apila arriba */
+
+}
+
+.mannager .section-title {
+    color: var(--clr-title);
 }
 
 .cellista {
-    background-color: var(--clr-back);
-    min-height: 90vh;
-    z-index: 2;
+    background-color: var(--cl-back3);
+    min-height: 100vh;
+    z-index: 3;
 }
 
 .cellista .section-title {
@@ -78,8 +82,8 @@
 
 .clases {
     background-color: var(--clr-back2);
-    min-height: 90vh;
-    z-index: 2;
+    min-height: 100vh;
+    z-index: 3;
 }
 
 
@@ -89,12 +93,12 @@
 
 .bio {
     background-color: var(--cl-back3);
-    min-height:90vh;
-    z-index: 2;
+    min-height: 100vh;
+    z-index: 3;
 }
 
 .contacto {
     background-color: var(--clr-title);
-    min-height: 90vh;
-    z-index: 99;
+    min-height: 100vh;
+    z-index: 3
 }
