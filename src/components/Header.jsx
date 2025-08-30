@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { HashLink as Link } from 'react-router-hash-link';
 import "./Header.css";
 
 function Header() {
@@ -36,19 +37,11 @@ function Header() {
         const circle = svg.querySelector(".circle-logo");
 
         const handleMouseEnter = () => {
-            gsap.to(circle, {
-                fill: "#0f4d25",
-                duration: 0.5,
-                ease: "power1.inOut",
-            });
+            gsap.to(circle, { fill: "#0f4d25", duration: 0.5, ease: "power1.inOut" });
         };
 
         const handleMouseLeave = () => {
-            gsap.to(circle, {
-                fill: "none",
-                duration: 0.5,
-                ease: "power1.inOut",
-            });
+            gsap.to(circle, { fill: "none", duration: 0.5, ease: "power1.inOut" });
         };
 
         svg.addEventListener("mouseenter", handleMouseEnter);
@@ -60,65 +53,41 @@ function Header() {
         };
     }, []);
 
-    const handleScrollTo = (e, targetId) => {
-        e.preventDefault();
-        const target = document.getElementById(targetId);
-        if (target) {
-            target.scrollIntoView({ behavior: "smooth" });
-            setMenuOpen(false);
-        }
-    };
-
     return (
         <div className={`header ${hidden ? "hidden" : ""} ${scrolled ? "scrolled" : ""}`}>
             <nav className="navbar">
                 {/* Logo animado */}
                 <div className="logo">
-                    <svg
-                        ref={circleRef}
-                        width="40"
-                        height="40"
-                        viewBox="0 0 100 100"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <circle
-                            className="circle-logo"
-                            cx="50"
-                            cy="50"
-                            r="30"
-                            fill="none"
-                            stroke="#0f4d25"
-                            strokeWidth="4"
-                        />
+                    <svg ref={circleRef} width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <circle className="circle-logo" cx="50" cy="50" r="30" fill="none" stroke="#0f4d25" strokeWidth="4" />
                     </svg>
                 </div>
 
                 {/* Botón hamburguesa */}
-                {<button
+                <button
                     className={`menu-btn ${menuOpen ? "open" : ""}`}
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
                 >
-                    {<span></span>}
-                    {<span></span>}
-                    {<span></span>}
-                </button>}
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
                 {/* Menú móvil */}
                 <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
                     <ul>
-                        {["Inicio", "Management","Produccion", "Cellista","Contacto"].map(
-                            (item) => (
-                                <li key={item}>
-                                    <a
-                                        href={`#${item.toLowerCase()}`}
-                                        onClick={(e) => handleScrollTo(e, item.toLowerCase())}
-                                    >
-                                        {item}
-                                    </a>
-                                </li>
-                            )
-                        )}
+                        {["Inicio", "Management", "Produccion", "Cellista", "Contacto"].map((item) => (
+                            <li key={item}>
+                                <Link 
+                                    smooth 
+                                    to={`/#${item.toLowerCase()}`} 
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    {item}
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </nav>

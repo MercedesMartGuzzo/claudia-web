@@ -23,6 +23,10 @@
     box-sizing: border-box;
 }
 
+img{
+    max-width: 100%;
+}
+
 .container {
     margin: 0 auto;
     max-width: 1000px;
@@ -35,7 +39,7 @@
     align-items: start;
     padding: 2rem;
     scroll-margin-top: 2rem;
-    min-height: 100vh;
+  /*   min-height: 100vh; */
     margin: 1rem;
     border-radius: 5px;
 
@@ -53,14 +57,11 @@
 }
 
 /********* SECCIONES *********/
-.presentacion {
-    position: sticky;
-    top: 0;
-}
+
 
 .mannager {
     background-color: var(--clr-back);
-    min-height: 100vh;
+    /*     min-height: 100vh; */
     position: relative;
     z-index: 2;
 
@@ -74,6 +75,7 @@
     background-color: var(--cl-back3);
     min-height: 100vh;
     z-index: 3;
+    position: relative;
 }
 
 .cellista .section-title {
@@ -84,6 +86,7 @@
     background-color: var(--clr-back2);
     min-height: 100vh;
     z-index: 3;
+    position: relative;
 }
 
 
@@ -100,5 +103,6 @@
 .contacto {
     background-color: var(--clr-title);
     min-height: 100vh;
-    z-index: 3
+    z-index: 3;
+    position: relative;
 }

@@ -6,6 +6,8 @@
     min-height: 100vh;
     overflow-x: hidden;
     margin-top: 3rem;
+    position: sticky;
+    top: 0;
 }
 
 .presentacion-p {
@@ -13,6 +15,7 @@
     line-height: 1.8rem;
     color: var(--clr-back);
     text-align: center;
+    z-index: 0;
 }
 
 .wrapp-presentacion {
@@ -20,6 +23,8 @@
     text-align: center;
     padding: 2rem;
     border-radius: 5px;
+    z-index: 0;
+
 }
 
 /* .presentacion-p span {

@@ -1,0 +1,31 @@
+.wrapp-quinteto{
+    display: flex;
+    flex-direction: column;
+    margin-top:8rem;    
+}
+.quinteto-title {
+    font-family: var(--ff-noto-sans); 
+    font-size: 1.5rem;
+    color: var(--clr-back);
+}
+.quinteto-hero{
+    margin-top: 1rem;
+    line-height: 1.4;
+}
+.quinteto-p{
+    font-family: var(--ff-noto-sans);
+    color: var(--clr-back);
+    font-size: 1rem;
+}
+.quinteto-members{
+    font-family: var(--ff-inconsolata);
+    color: var(--clr-back);
+    font-size: 1.1rem;
+    margin-top: .5rem;
+}
+.quinteto-members span{
+    font-weight: bold;
+    color: var(--clr-back2);
+    font-family: var(--ff-noto-sans);
+    font-size: .9rem;
+}

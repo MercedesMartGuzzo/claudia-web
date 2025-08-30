@@ -11,11 +11,9 @@ export default function Presentacion() {
     useLayoutEffect(() => {
         if (!wrapperRef.current) return;
         const el = wrapperRef.current;
-
-        // ✅ Chequeamos el ancho de pantalla
         const isMobile = window.innerWidth < 768;
 
-        // Fade in inicial
+        // Fade in inicial (igual para desktop y mobile)
         gsap.fromTo(
             el,
             { opacity: 0, y: -50 },
@@ -26,30 +24,45 @@ export default function Presentacion() {
                 ease: "power2.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: isMobile ? "top 95%" : "top 80%", 
-                    end: isMobile ? "bottom 0%" : "top 0%",  
+                    start: isMobile ? "top 95%" : "top 80%",
+                    end: isMobile ? "bottom 0%" : "top 0%",
                     toggleActions: "play reverse play reverse",
                 },
             }
         );
 
-        // Fade out + movimiento hacia abajo
-        const fadeOutTrigger = gsap.to(el, {
-            y: 100,
-            opacity: 0,
-            ease: "power2.out",
-            scrollTrigger: {
+        if (isMobile) {
+            // Mobile: desaparecer instantáneamente al ser cubierto por Mannager
+            ScrollTrigger.create({
                 trigger: ".mannager",
-                start: isMobile ? "top top" : "center center",
-                end: "bottom top",
-                scrub: true,
-            },
-        });
+                start: "top top",
+                end: "+=1",
+                onEnter: () => gsap.set(el,
+                    {
 
-        // cleanup
-        return () => {
-            fadeOutTrigger.scrollTrigger.kill();
-        };
+                        opacity: 0,
+                        y: 100
+                    }),
+                onLeaveBack: () => gsap.set(el,
+                    {
+                        opacity: 1,
+                        y: 0,
+                    }),
+            });
+        } else {
+            // Desktop: fadeOut con scrub
+            gsap.to(el, {
+                y: 100,
+                opacity: 0,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: ".mannager",
+                    start: "center center",
+                    end: "bottom top",
+                    scrub: 2,
+                },
+            });
+        }
     }, []);
 
     return (
