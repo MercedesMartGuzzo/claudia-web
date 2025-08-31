@@ -1,0 +1,47 @@
+.wrapp-duo {
+    display: flex;
+    flex-direction: column;
+    margin-top: 8rem;
+}
+
+.duo-title {
+    font-family: var(--ff-noto-sans);
+    font-size: 1.5rem;
+    color: var(--clr-back);
+}
+
+.duo-hero {
+    margin-top: 1rem;
+    line-height: 1.4;
+}
+
+.duo-p {
+    font-family: var(--ff-noto-sans);
+    color: var(--clr-back);
+    font-size: 1rem;
+}
+
+.duo-members {
+    font-family: var(--ff-inconsolata);
+    color: var(--clr-back);
+    font-size: 1.1rem;
+    margin-top: .5rem;
+}
+
+.duo-members span {
+    font-weight: bold;
+    color: var(--clr-back2);
+    font-family: var(--ff-noto-sans);
+    font-size: .9rem;
+}
+
+.duo-orquestal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #16707ade;
+}
+.duo-orquestal p{
+    margin-top: 1rem;
+}

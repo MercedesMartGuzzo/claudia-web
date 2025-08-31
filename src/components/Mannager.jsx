@@ -42,7 +42,9 @@ export default function Mannager() {
                         <img src="./salgan-falabella.jpg" alt="salgan-falabella" />
                     </div>
                     <div className='card-button'>
-                        <ArrowUpRightCircleFill className="card-icon" />
+                        <Link to="/duo">
+                            <ArrowUpRightCircleFill className="card-icon" />
+                        </Link>
                     </div>
                 </div>
             </div>
