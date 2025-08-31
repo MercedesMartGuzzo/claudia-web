@@ -15,7 +15,8 @@
 }
 
 .galvan-card,
-.salgan-card {
+.salgan-card,
+.salgan-card1 {
     color: var(--clr-title);
     font-family: var(--ff-noto-sans);
     display: flex;
@@ -26,9 +27,11 @@
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
-.salgan-card {
+
+.salgan-card1 {
     border-bottom: 1px solid #16707ade;
 }
+
 .card-photo img {
     border-radius: 5px;
 }
@@ -39,28 +42,37 @@
 }
 
 .galvan-card:hover,
-.salgan-card:hover {
+.salgan-card:hover,
+.salgan-card1:hover {
     color: var(--clr-back);
     background-color: var(--clr-title);
 }
-.card-button a  {
+
+.card-button a {
     text-decoration: none;
     color: inherit;
 }
+
 .card-icon {
     width: 20px;
     height: 20px;
-
 }
+
 .card-icon:hover {
- cursor: pointer;
+    cursor: pointer;
+}
+
+.card-photo1 {
+    display: grid;
+    justify-self: center;
 
 }
 
 @media(min-width: 768px) {
 
     .galvan-card,
-    .salgan-card {
+    .salgan-card,
+    .salgan-card1 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
@@ -85,7 +97,8 @@
 @media(min-width: 1200px) {
 
     .galvan-card,
-    .salgan-card {
+    .salgan-card,
+    .salgan-card1 {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr;
@@ -100,7 +113,10 @@
         width: 30px;
         height: 30px;
     }
-    .card-photo img{
-   margin-top: 2rem;
+
+    .card-photo img,
+    .card-photo1 img {
+        margin-top: 2rem;
     }
+
 }

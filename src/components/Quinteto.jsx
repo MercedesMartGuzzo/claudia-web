@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Quinteto.css";
+import { ArrowUpRightCircleFill } from "react-bootstrap-icons";
 
 
 export default function Quinteto() {
@@ -16,6 +17,15 @@ export default function Quinteto() {
                     <span> En Violín</span>: Ariel Romano<br />
                     <span> En Guitarra:</span> Claudio Jurado <br />
                 </p>
+            </div>
+            <div className='card-button1'>
+                <a
+                    href="https://youtu.be/-sopvrTW_po?si=GfhOm_uV3DTNW1fp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <ArrowUpRightCircleFill className="card-icon1" />
+                </a>
             </div>
         </div>
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import "./Duo.css";
+import { ArrowUpRightCircleFill } from "react-bootstrap-icons";
 export default function Duo() {
     return (
         <div className='wrapp-duo section container'>
@@ -14,13 +15,15 @@ export default function Duo() {
                 <p className='duo-members'> <span>Lo integran en piano:</span> César Salgán<br />
                     <span> En guitarra</span>: Esteban Falabella<br />
                 </p>
-                <div className='duo-orquestal'>
-                    <h2 className='duo-title'>Salgán Orquestal</h2>
-                    <p className='duo-p'>Salgán Orquestal es un concierto que recorre los arreglos y composiciones de Horacio Salgán, ampliados a la sonoridad orquestal. El Dúo Salgán - Falabella sumando un Bandoneón y una orquesta de cuerdas son el marco sonoro para un concierto único.<br />
-                        Recuerdo (O. Pugliesse), Gallo Ciego (A. Bardi), Canaro en París (Scarpino y Caldarella), Ojos Negros(V. Greco), El Choclo (A. Villoldo), La Puñalada (Pintín Castellanos), Tierra Querida (Julio Decaro) y  La Pulpera de Santa Lucía (E.Maciel) son algunos de los arreglos de Horacio Salgán de clásicos del género que forman parte de este concierto, así como también sus c A Fuego Lento, La llamo Silbando, Grillito y composiciones de Cesar Salgán como A Dos Mujeres y Milongas y milongueros. <br />
-                        Salgan - Falabella se presentaron junto a la Orquesta Nacional de Música Argentina Juan de Dios Filiberto en el Centro Cultural Palacio Libertad de Buenos Aires.
-                    </p>
-                </div>
+            </div>
+            <div className='card-button1'>
+                <a
+                    href="https://youtu.be/YMnb7hvAxqs?si=NeK1M_7jGNl6o6i5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <ArrowUpRightCircleFill className="card-icon1" />
+                </a>
             </div>
         </div>
     )

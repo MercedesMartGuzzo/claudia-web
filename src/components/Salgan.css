@@ -1,40 +1,32 @@
-.wrapp-quinteto{
+.wrapp-salgan {
     display: flex;
     flex-direction: column;
-    margin-top:8rem;    
+    margin-top: 8rem;
     min-height: 100vh;
 }
-.quinteto-title {
-    font-family: var(--ff-noto-sans); 
+
+.salgan-title {
+    font-family: var(--ff-noto-sans);
     font-size: 1.5rem;
     color: var(--clr-back);
 }
-.quinteto-hero{
+
+.salgan-orquestal {
     margin-top: 1rem;
     line-height: 1.4;
 }
-.quinteto-p{
+
+.salgan-p {
     font-family: var(--ff-noto-sans);
     color: var(--clr-back);
     font-size: 1rem;
 }
-.quinteto-members{
-    font-family: var(--ff-inconsolata);
-    color: var(--clr-back);
-    font-size: 1.1rem;
-    margin-top: .5rem;
-}
-.quinteto-members span{
-    font-weight: bold;
-    color: var(--clr-back2);
-    font-family: var(--ff-noto-sans);
-    font-size: .9rem;
-}
 
 /* *****BOTONES******** */
-.card-button1{
+.card-button1 {
     margin-top: 1rem;
 }
+
 .card-button1 a {
     text-decoration: none;
     color: var(--clr-back);
@@ -49,8 +41,9 @@
     cursor: pointer;
     color: var(--clr-back2);
 }
+
 @media (min-width: 768px) {
-  .card-icon1 {
+    .card-icon1 {
         width: 28px;
         height: 28px;
     }
