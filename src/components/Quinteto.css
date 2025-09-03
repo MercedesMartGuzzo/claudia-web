@@ -34,25 +34,74 @@
 /* *****BOTONES******** */
 .card-button1{
     margin-top: 1rem;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.card-button1::before {
+    content: "";
+    display: block;
+    width: 100%;
+    background: var(--clr-back);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms ease-in-out;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.card-button1:hover::before {
+    transform: scaleX(1);
+}
+
+.card-text1 {
+    display: inline-block;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 250ms ease, transform 250ms ease;
+    font-family: var(--ff-inconsolata);
+    font-size:1rem ;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    top: -5px;
+    padding: .3rem;
+    border-radius: 5px;
+}
+
+.card-button1:hover .card-text1 {
+    opacity: 1;
+    transform: translateX(0);
 }
 .card-button1 a {
     text-decoration: none;
     color: var(--clr-back);
 }
 
+
 .card-icon1 {
     width: 22px;
     height: 22px;
+   
+}
+.card-icon1 i{
+    margin-right: .3rem;
 }
 
 .card-icon1:hover {
     cursor: pointer;
     color: var(--clr-back2);
 }
+
 @media (min-width: 768px) {
   .card-icon1 {
         width: 28px;
         height: 28px;
     }
+
+.card-text1 {  
+    top: -9px; 
+}
 
 }

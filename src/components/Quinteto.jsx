@@ -24,7 +24,7 @@ export default function Quinteto() {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <ArrowUpRightCircleFill className="card-icon1" />
+                    <ArrowUpRightCircleFill className="card-icon1" /> <span className="card-text1">Ver video</span>
                 </a>
             </div>
         </div>

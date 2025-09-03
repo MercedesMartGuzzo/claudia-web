@@ -16,7 +16,9 @@ export default function Presentacion() {
         // Fade in inicial (igual para desktop y mobile)
         gsap.fromTo(
             el,
-            { opacity: 0, y: -50 },
+            { opacity: 0, 
+                y: -50 
+            },
             {
                 opacity: 1,
                 y: 0,
@@ -31,7 +33,7 @@ export default function Presentacion() {
             }
         );
 
-        if (isMobile) {
+      /*   if (isMobile) {
             // Mobile: desaparecer instantáneamente al ser cubierto por Mannager
             ScrollTrigger.create({
                 trigger: ".mannager",
@@ -62,7 +64,7 @@ export default function Presentacion() {
                     scrub: 2,
                 },
             });
-        }
+        } */
     }, []);
 
     return (

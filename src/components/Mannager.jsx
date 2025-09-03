@@ -16,7 +16,7 @@ export default function Mannager() {
                     </div>
                     <div>
                         <p className='card-p'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, at sint! Adipisci, ratione? Magni, possimus unde deserunt aperiam amet enim
+                            El Quinteto Galván nace en el Taller Galván en Buenos Aires, su formación es única y poderosa y su repertorio está compuesto por Tango y Folklore.
                         </p>
                     </div>
                     <div className='card-photo'>
@@ -35,7 +35,7 @@ export default function Mannager() {
                     </div>
                     <div>
                         <p className='card-p'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, at sint! Adipisci, ratione? Magni, possimus unde deserunt aperiam amet enim
+                            El Dúo Salgán - Falabella le da continuidad a la obra y legado estilístico al histórico Dúo Salgán - De Lío.
                         </p>
                     </div>
                     <div className='card-photo'>
@@ -54,11 +54,11 @@ export default function Mannager() {
                     </div>
                     <div>
                         <p className='card-p'>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis, at sint! Adipisci, ratione? Magni, possimus unde deserunt aperiam amet enim
+                            Salgán Orquestal es un concierto que recorre los arreglos y composiciones de Horacio Salgán, ampliados a la sonoridad orquestal
                         </p>
                     </div>
                     <div className='card-photo1'>
-                        <img src="./salgan-orquestal.jpg" alt="horacio salgan" />
+                        <img src="./horacio-salgan.jpg" alt="horacio salgan" />
                     </div>
                     <div className='card-button'>
                         <Link to="/salgan">
