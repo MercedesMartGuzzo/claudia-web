@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 
-img{
+img {
     max-width: 100%;
 }
 
@@ -39,7 +39,7 @@ img{
     align-items: start;
     padding: 2rem;
     scroll-margin-top: 2rem;
-  /*   min-height: 100vh; */
+    /*   min-height: 100vh; */
     margin: 1rem;
     border-radius: 5px;
 
@@ -54,6 +54,12 @@ img{
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+    .section-title {
+        font-size: 2rem;
+    }
 }
 
 /********* SECCIONES *********/

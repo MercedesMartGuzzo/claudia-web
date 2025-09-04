@@ -1,12 +1,15 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import SplitType from "split-type";
 import "./Hero.css";
 
 
 export default function Hero() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener("resize", handleResize);
         // Animación h1
         const split = new SplitType("h1", { types: "words, chars" });
         split.words.forEach((word, i) => {
@@ -20,22 +23,38 @@ export default function Hero() {
             });
         });
 
+        // Animación h2 (aparece debajo y desde abajo)
+        const splitH2 = new SplitType(".hero-subtitle", { types: "words, chars" });
+        splitH2.words.forEach((word, i) => {
+            gsap.from(word.querySelectorAll(".char"), {
+                opacity: 0,
+                y: isMobile ? 20 : 50,
+                stagger: 0.05,
+                duration: 0.6,
+                ease: "power3.in",
+                delay: 1.5 + i * 0.8,
+            });
+        });
+
         // Animar cada ola independiente con distintas velocidades
         const waves = document.querySelectorAll(".wave-svg");
         waves.forEach((wave, i) => {
             gsap.to(wave, {
                 xPercent: -50,
                 repeat: -1,
-                duration: 8 + i * 2.5, 
+                duration: 8 + i * 2.5,
                 ease: "linear",
             });
         });
-    }, []);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [isMobile]);
+
 
     return (
         <section className="hero" id="inicio">
             <div className="content">
                 <h1>Claudia Sereni</h1>
+                <h2 className="hero-subtitle">Management - Producción - Cellista</h2>
             </div>
 
             <div className="waves-japan">
@@ -58,7 +77,7 @@ export default function Hero() {
                 ))}
             </div>
         </section>
-       
-       
+
+
     );
 }
