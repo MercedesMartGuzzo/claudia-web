@@ -35,24 +35,6 @@
 
 }
 
-/* 
-.logo img {
-
-    max-width: 2rem;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: .5rem;
-} */
-
-/* Botón hamburguesa (siempre visible) */
-/* .menu-btn {
-    background: none;
-    border: none;
-    font-size: 2.3rem;
-    cursor: pointer;
-    color: var(--clr-back2);
-    z-index: 1200;
-}  */
 .logo:hover {
     cursor: pointer;
 }
@@ -96,7 +78,6 @@
 
 .menu-btn.open span:nth-child(1) {
     transform: rotate(45deg) translate(9px, 5px) scaleY(1);
-    /*   background-color: var(--clr-back2); */
 }
 
 .menu-btn.open span:nth-child(2) {
@@ -128,11 +109,7 @@
     top: 0;
 }
 
-/* 
-.mobile-menu.open {
-    bottom: 0;
-}
- */
+
 .mobile-menu ul {
     list-style: none;
     text-align: center;
@@ -147,4 +124,58 @@
     text-decoration: none;
     color: var(--clr-back2);
     font-family: var(--ff-inconsolata);
+    position: relative;
+}
+
+/* .mobile-menu ul li a::before,
+.mobile-menu ul li a::after {
+    content: '';
+    position: absolute; */
+    /*  top: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--cl-back3);
+    transform: scaleY(0);
+    transition: transform 0.3s cubic-bezier(.77, 0, .18, 1); */
+ /*    pointer-events: none;
+}
+ */
+/* .mobile-menu ul li a::before {
+    left: -6px;
+    transform-origin: top;
+}
+
+.mobile-menu ul li a::after {
+    right: -6px;
+    transform-origin: bottom;
+} */
+
+/* .mobile-menu ul li a:hover::before,
+.mobile-menu ul li a:hover::after {
+    transform: scaleY(1);
+
+} */
+
+.mobile-menu ul li a::before {
+    content: '(';
+    color: var( --clr-title);
+    display: inline-block;
+    transition: color 2s, transform .1s .2s;
+}
+
+.mobile-menu ul li a::after {
+    content: ')';
+    color: var( --clr-title);
+    display: inline-block;
+    transition: color .2s, transform .1s .2s;
+}
+
+.mobile-menu ul li a:hover::before {
+    transform: translateX(-.6rem);
+    color:var( --cl-back3);
+}
+
+.mobile-menu ul li a:hover::after {
+    transform: translateX(.6rem);
+    color: var( --cl-back3);
 }

@@ -1,0 +1,8 @@
+
+.produccion-subtitle {
+    font-family: var(--ff-inconsolata);
+    color: var(--clr-title);
+    margin-top: 2rem;
+    font-size: 1.5rem;
+ text-wrap: balance;
+}

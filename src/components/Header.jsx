@@ -64,7 +64,21 @@ function Header() {
         <div className={`header ${hidden ? "hidden" : ""} ${scrolled ? "scrolled" : ""}`}>
             <nav className="navbar">
                 <div className="logo">
-                    <Link smooth to="/#inicio" onClick={() => setMenuOpen(false)}>
+                    <Link
+                        smooth
+                        to="/#inicio"
+                        onClick={() => {
+                            setMenuOpen(false);
+                            if (location.pathname !== "/") {
+                                navigate("/");
+                                setTimeout(() => {
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }, 100);
+                            } else {
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                        }}
+                    >
                         <svg ref={circleRef} width="40" height="40" viewBox="0 0 100 100">
                             <circle className="circle-logo" cx="50" cy="50" r="30" fill="none" stroke="#0f4d25" strokeWidth="4" />
                         </svg>

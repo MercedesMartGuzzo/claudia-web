@@ -23,6 +23,11 @@
     box-sizing: border-box;
 }
 
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 img {
     max-width: 100%;
 }
@@ -88,7 +93,7 @@ img {
     color: var(--clr-title);
 }
 
-.clases {
+.produccion {
     background-color: var(--clr-back2);
     min-height: 100vh;
     z-index: 3;
@@ -96,7 +101,7 @@ img {
 }
 
 
-.clases .section-title {
+.produccion .section-title {
     color: var(--clr-title);
 }
 
