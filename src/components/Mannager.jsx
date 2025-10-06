@@ -4,6 +4,7 @@ import { ArrowUpRightCircleFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
 
 export default function Mannager() {
+    
     return (
         <div className='container'>
             <div className='management-subtitle'>
@@ -22,11 +23,18 @@ export default function Mannager() {
                     <div className='card-photo'>
                         <img src="./quinteto-galvan.jpg" alt="quinteto galvan" />
                     </div>
-                    <div className='card-button'>
+                    {/*    <div className='card-button'>
                         <Link to="/quinteto">
                             <ArrowUpRightCircleFill className="card-icon" />
                         </Link>
+                    </div> */}
+                    <div className='card-button'>
+                        <Link to="/salgan" className="btn-link">
+                            <span className="btn-effect"></span>
+                            <ArrowUpRightCircleFill className="card-icon" />
+                        </Link>
                     </div>
+
                 </div>
 
                 <div className='salgan-card'>

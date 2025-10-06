@@ -4,70 +4,114 @@ import "./Produccion.css";
 
 const itemsData = [
     {
-        title: "Ismael Serrano Sinfónico", info: " Movistar Arena, Buenos Aires Argentina 2025.", color: "#F9C74F" },
-    { title: "Cuarteto de Cuerdas Nito Mestre", info: " Buenos Aires, Argentina 2012 y 2024", color: "#90BE6D" },
-    { title: "Cuarteto de Cuerdas Ismael Serrano", info: "Buenos Aires, Argentina 2024", color: "#F94144" },
-    { title: "Grabación Ismael Serrano Sinfónico", info: " Buenos Aires, Argentina 2023", color: "#577590" },
-    { title: "Ensamble Seda – Utopía Pedro Aznar / Ramiro Gallo", info: " Buenos Aires, Argentina 2019", color: "#43AA8B" },
-    { title: "Raúl Barboza + Ramiro Gallo Ensamble", info: "Lorem ipsum dolor sit amet.", color: "#F3722C" }
+        title: "Ismael Serrano Sinfónico",
+        info: " Movistar Arena, Buenos Aires Argentina 2025.",
+        color: "#43AA8B",
+        image: "sinfonico-ismael.jpg"
+    },
+    {
+        title: "Cuarteto de Cuerdas Nito Mestre",
+        info: " Buenos Aires, Argentina 2012 y 2024",
+        color: "#43AA8B",
+        image: "cuarteto-nito.jpg"
+    },
+    {
+        title: "Cuarteto de Cuerdas Ismael Serrano",
+        info: "Buenos Aires, Argentina 2024",
+        color: "#43AA8B"
+    },
+    {
+        title: "Grabación Ismael Serrano Sinfónico",
+        info: " Buenos Aires, Argentina 2023",
+        color: "#43AA8B"
+    },
+    {
+        title: "Ensamble Seda – Utopía Pedro Aznar / Ramiro Gallo",
+        info: " Buenos Aires, Argentina 2019",
+        color: "#43AA8B"
+    },
+    {
+        title: "Raúl Barboza + Ramiro Gallo Ensamble",
+        info: "Lorem ipsum dolor sit amet.",
+        color: "#43AA8B"
+    }
 ];
 
 export default function Produccion() {
     const itemsRef = useRef([]);
 
     useEffect(() => {
-        itemsRef.current.forEach((el, idx) => {
+        itemsRef.current.forEach((el) => {
             if (!el) return;
+
             const p = el.querySelector("p");
-            const fullHeight = p.scrollHeight;
+            const img = el.querySelector("img");
+            const extra = el.querySelector(".produccion-extra");
 
-            // estado inicial
+            // Estado inicial
             gsap.set(p, { height: 0, opacity: 0, overflow: "hidden" });
+            gsap.set(img, { scaleY: 0, opacity: 0, transformOrigin: "top center" });
+            gsap.set(el, { height: 150 }); // altura base
+            gsap.set(extra, { borderLeft: "0px solid var(--clr-back)" }); // sin borde por defecto
+            gsap.set(p, { borderTop: "0px solid var(--clr-back)" });
 
-            // animación expandir
             const expand = () => {
+                const isMobile = window.innerWidth < 768;
+
+                // Mostrar contenido invisible solo para medir altura
+                gsap.set(p, { height: "auto", opacity: 1 });
+                gsap.set(img, { scaleY: 1, opacity: 1 });
+                const targetHeight = el.scrollHeight; // altura final con todo el contenido
+
+                // Animación de altura y color
                 gsap.to(el, {
-                    minHeight: 300,
+                    height: targetHeight,
                     backgroundColor: "#77B0AA",
-                    duration: 0.5,
-                    delay: idx * 0.2, // 🔥 delay según la posición de la tarjeta
-                    ease: "power2.out"
-                });
-                gsap.to(p, {
-                    height: fullHeight,
-                    opacity: 1,
-                    duration: 0.5,
-                    delay: idx * 0.2, // 🔥 mismo delay
+                    duration: 0.6,
                     ease: "power2.out",
-                    onComplete: () => gsap.set(p, { height: "auto" })
+                    onComplete: () => gsap.set(el, { height: "auto" })
                 });
+
+                // Animación de contenido
+                if (!isMobile) {
+                    // Desktop: borde izquierdo
+                    gsap.to(extra, { borderLeft: "1px solid var(--clr-back)", duration: 0.3, ease: "power2.out" });
+                } else {
+                    // Mobile: borde-top en p
+                    gsap.to(p, { borderTop: "1px solid var(--clr-back)", duration: 0.3, ease: "power2.out" });
+                }
+
+                gsap.to(img, { scaleY: 1, opacity: 1, duration: 0.5, ease: "power2.out" });
             };
 
-            // animación replegar
             const collapse = () => {
+                const isMobile = window.innerWidth < 768;
+
+                // Animación de altura y color
                 gsap.to(el, {
-                    minHeight: 150,
+                    height: 150,
                     backgroundColor: el.dataset.color,
                     duration: 0.5,
-                    delay: idx * 0.2, // 🔥 mismo delay
                     ease: "power2.inOut"
                 });
-                gsap.to(p, {
-                    height: 0,
-                    opacity: 0,
-                    duration: 0.5,
-                    delay: idx * 0.2, // 🔥 mismo delay
-                    ease: "power2.inOut"
-                });
+
+                // Animación del contenido
+                gsap.to(p, { height: 0, opacity: 0, duration: 0.5, ease: "power2.inOut" });
+                gsap.to(img, { scaleY: 0, opacity: 0, duration: 0.5, ease: "power2.inOut" });
+
+                // Remover bordes
+                if (!isMobile) {
+                    gsap.set(extra, { borderLeft: "0px solid var(--clr-back)" });
+                } else {
+                    gsap.set(p, { borderTop: "0px solid var(--clr-back)" });
+                }
             };
 
-            // listeners mouse y touch
             el.addEventListener("mouseenter", expand);
             el.addEventListener("mouseleave", collapse);
             el.addEventListener("touchstart", expand);
             el.addEventListener("touchend", collapse);
 
-            // limpieza
             return () => {
                 el.removeEventListener("mouseenter", expand);
                 el.removeEventListener("mouseleave", collapse);
@@ -94,7 +138,10 @@ export default function Produccion() {
                     >
                         <div className="produccion-content">
                             <h3>{item.title}</h3>
-                            <p>{item.info}</p>
+                            <div className="produccion-extra">
+                                {item.image && <img src={item.image} alt={item.title} />}
+                                <p>{item.info}</p>
+                            </div>
                         </div>
                     </div>
                 ))}

@@ -1,77 +1,73 @@
-import { useLayoutEffect, useRef } from "react";
+import "./Presentacion.css";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./Presentacion.css";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export default function Presentacion() {
-    const wrapperRef = useRef(null);
+    const sectionRef = useRef(null);
+    const pRef = useRef(null);
 
-    useLayoutEffect(() => {
-        if (!wrapperRef.current) return;
-        const el = wrapperRef.current;
-        const isMobile = window.innerWidth < 768;
+    useEffect(() => {
+        const p = pRef.current;
+        const section = sectionRef.current;
 
-        // Fade in inicial (igual para desktop y mobile)
-        gsap.fromTo(
-            el,
-            { opacity: 0, 
-                y: -50 
-            },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                ease: "power2.out",
+        // Asegurarse de que la sección tenga suficiente altura para el scroll
+        section.style.minHeight = "100vh";
+        // SplitText: separar palabras
+        const split = new SplitText(p, { type: "words" });
+
+        // Color inicial más claro
+        gsap.set(split.words, { color: "var(--clr-back3)" });
+
+        // Iluminación palabra por palabra
+        gsap.to(split.words, {
+            color: "#003C43",
+            stagger: 0.05,
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 2,
+                pin: true,
+            }
+        });
+
+        // Animación del trazo estilo “hecho a mano” en palabras resaltadas
+        const highlights = p.querySelectorAll(".highlight");
+        highlights.forEach((el) => {
+            gsap.to(el, {
+                "--scaleX": 1,
+                duration: 0.5,
+                ease: "power1.out",
                 scrollTrigger: {
                     trigger: el,
-                    start: isMobile ? "top 95%" : "top 80%",
-                    end: isMobile ? "bottom 0%" : "top 0%",
-                    toggleActions: "play reverse play reverse",
-                },
-            }
-        );
-
-      /*   if (isMobile) {
-            // Mobile: desaparecer instantáneamente al ser cubierto por Mannager
-            ScrollTrigger.create({
-                trigger: ".mannager",
-                start: "top top",
-                end: "+=1",
-                onEnter: () => gsap.set(el,
-                    {
-
-                        opacity: 0,
-                        y: 100
-                    }),
-                onLeaveBack: () => gsap.set(el,
-                    {
-                        opacity: 1,
-                        y: 0,
-                    }),
-            });
-        } else {
-            // Desktop: fadeOut con scrub
-            gsap.to(el, {
-                y: 100,
-                opacity: 0,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".mannager",
-                    start: "center center",
-                    end: "bottom top",
+                    start: "top 0",
+                    end: "bottom bottom",
                     scrub: 2,
-                },
+
+                }
             });
-        } */
+        });
+
+        return () => split.revert(); // limpiar SplitText
     }, []);
 
+
     return (
-        <div className="wrapp-presentacion container" ref={wrapperRef}>
-            <p className="presentacion-p">
-                Mi enfoque integral en la gestión cultural abarca desde el management y la producción hasta la interpretación musical. Propongo unir a los artistas con oportunidades claves para su desarrollo. Al seguir activa como violoncellista freelance y docente, me mantengo en constante contacto con el mundo artístico, lo que me permite aportar una visión fresca y auténtica a cada proyecto.
-            </p>
+        <div className="section presentacion" ref={sectionRef}>
+            <div className="wrapp-presentacion container">
+                <p ref={pRef} className="presentacion-p">
+                    Mi enfoque integral en la gestión cultural abarca desde el{" "}
+                    <span className="highlight">management</span>{" "}y la{" "}
+                    <span className="highlight">producción</span>{" "}hasta la{" "}
+                    <span className="highlight">interpretación cultural</span>. Propongo unir a los artistas con oportunidades claves para su desarrollo. Al seguir activa como violoncellista freelance y docente, me mantengo en constante contacto con el mundo artístico, lo que me permite aportar una visión fresca y auténtica a cada proyecto.
+                </p>
+
+            </div>
         </div>
     );
 }

@@ -3,6 +3,7 @@
     color: var(--clr-title);
     margin-top: 2rem;
     font-size: 1.5rem;
+   
 }
 
 .card-grid {
@@ -51,7 +52,7 @@
 .card-button a {
     text-decoration: none;
     color: inherit;
-}
+} 
 
 .card-icon {
     width: 20px;
@@ -112,7 +113,7 @@
     .card-icon {
         width: 30px;
         height: 30px;
-    }
+    } 
 
     .card-photo img,
     .card-photo1 img {

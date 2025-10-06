@@ -50,7 +50,8 @@ img {
 
 }
 
-
+body{overflow-x: hidden
+    ;}
 
 .section-title {
     font-family: var(--ff-inconsolata);
@@ -84,9 +85,9 @@ img {
 
 .cellista {
     background-color: var(--cl-back3);
-    min-height: 100vh;
+    min-height: 100vh; 
     z-index: 3;
-    position: relative;
+
 }
 
 .cellista .section-title {
