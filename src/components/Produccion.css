@@ -31,6 +31,24 @@
     font-family: var(--ff-inconsolata);
 
 }
+.produccion-item {
+  background-color: var(--clr-main, #43AA8B);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.produccion-item:hover:not(.expanded) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  background-color: #5fc2a4;
+}
+
+.produccion-item.expanded {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background-color: #77B0AA;
+}
+
+
 .produccion--extra{
     display: flex;
     flex-direction: column;
