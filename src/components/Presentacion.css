@@ -17,17 +17,17 @@
   line-height: 1.5rem;
   color: var(--clr-title);
   font-family: var(--ff-noto-sans);
+
 }
 .highlight {
-    color: var(--clr-back2);
+    color:  #77B0AA;
     font-weight: bold;
 
 }
 
-
 @media (min-width: 767px) {
     .presentacion-p {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         line-height: 2.5rem;
         color: var(--clr-title);
         font-family: var(--ff-noto-sans);
