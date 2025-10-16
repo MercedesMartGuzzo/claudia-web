@@ -3,12 +3,39 @@ import { gsap } from "gsap";
 import "./Produccion.css";
 
 const itemsData = [
-    { title: "Ismael Serrano Sinfónico", info: "Movistar Arena, Buenos Aires Argentina 2025.", color: "#43AA8B", image: "sinfonico-ismael.jpg" },
-    { title: "Cuarteto de Cuerdas Nito Mestre", info: "Buenos Aires, Argentina 2012 y 2024", color: "#43AA8B", image: "cuarteto-nito.jpg" },
-    { title: "Cuarteto de Cuerdas Ismael Serrano", info: "Buenos Aires, Argentina 2024", color: "#43AA8B" },
-    { title: "Grabación Ismael Serrano Sinfónico", info: "Buenos Aires, Argentina 2023", color: "#43AA8B" },
-    { title: "Ensamble Seda – Utopía Pedro Aznar / Ramiro Gallo", info: "Buenos Aires, Argentina 2019", color: "#43AA8B" },
-    { title: "Raúl Barboza + Ramiro Gallo Ensamble", info: "Lorem ipsum dolor sit amet.", color: "#43AA8B" }
+    {
+        title: "Ismael Serrano Sinfónico",
+        info: "Movistar Arena, Buenos Aires Argentina 2025.",
+        color: "#43AA8B",
+        image: "sinfonico-ismael.jpg"
+    },
+    {
+        title: "Cuarteto de Cuerdas Nito Mestre",
+        info: "Buenos Aires, Argentina 2012 y 2024",
+        color: "#43AA8B",
+        image: "cuarteto-nito.jpg"
+    },
+    {
+        title: "Cuarteto de Cuerdas Ismael Serrano",
+        info: "Buenos Aires, Argentina 2024",
+        color: "#43AA8B"
+    },
+    {
+        title: "Grabación Ismael Serrano Sinfónico",
+        info: "Buenos Aires, Argentina 2023",
+        color: "#43AA8B"
+    },
+    {
+        title: "Ensamble Seda – Utopía Pedro Aznar / Ramiro Gallo",
+        info: "Buenos Aires, Argentina 2019",
+        color: "#43AA8B"
+    },
+    {
+        title: "Raúl Barboza + Ramiro Gallo Ensamble",
+        info: "Lorem ipsum dolor sit amet.",
+        color: "#43AA8B",
+        image: "barboza-ramiro.jpg"
+    }
 ];
 
 export default function Produccion() {
@@ -35,7 +62,7 @@ export default function Produccion() {
                 const isMobile = window.innerWidth < 768;
 
                 if (!expanded) {
-                    // 🔴 Replegar todas las demás tarjetas antes de expandir esta
+
                     itemsRef.current.forEach((other, i) => {
                         if (other && i !== index && other.classList.contains("expanded")) {
                             const op = other.querySelector("p");
@@ -80,7 +107,7 @@ export default function Produccion() {
                     el.classList.add("expanded");
                     expanded = true;
                 } else {
-                  
+
                     gsap.to(el, {
                         height: 150,
                         backgroundColor: el.dataset.color,
@@ -113,7 +140,7 @@ export default function Produccion() {
                     <div
                         key={idx}
                         className="produccion-item"
-                      /*   style={{ background: item.color }} */
+                        /*   style={{ background: item.color }} */
                         data-color={item.color}
                         ref={(el) => (itemsRef.current[idx] = el)}
                     >

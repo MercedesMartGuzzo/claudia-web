@@ -38,6 +38,7 @@
 
 .produccion-item:hover:not(.expanded) {
   transform: translateY(-5px);
+  transform: rotate(1deg);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   background-color: #5fc2a4;
 }

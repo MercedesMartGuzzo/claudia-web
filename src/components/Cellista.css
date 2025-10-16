@@ -1,0 +1,44 @@
+.cellista {
+  position: relative;
+  overflow: hidden;
+
+  height: 100vh; /* la altura visible del scroll horizontal */
+}
+
+.photo-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  height:auto;
+  gap: 1rem
+}
+
+.photo-grid div {
+ /*  flex: 0 0 100vw; /* cada */ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-grid img {
+  width: 600px;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 1023px) {
+  .horizontal-section {
+    height: auto;
+    overflow: visible;
+  }
+
+  .photo-grid {
+    display: block;
+  }
+
+  .photo-grid div {
+    flex: none;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

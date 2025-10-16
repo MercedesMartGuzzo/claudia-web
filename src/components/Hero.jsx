@@ -15,7 +15,7 @@ export default function Hero() {
         split.words.forEach((word, i) => {
             gsap.from(word.querySelectorAll(".char"), {
                 opacity: 0,
-                y: -50,
+                x: 50,
                 stagger: 0.05,
                 duration: 0.6,
                 ease: "power3.in",
@@ -28,7 +28,7 @@ export default function Hero() {
         splitH2.words.forEach((word, i) => {
             gsap.from(word.querySelectorAll(".char"), {
                 opacity: 0,
-                y: isMobile ? 20 : 50,
+                y: isMobile ? -5 : -20,
                 stagger: 0.05,
                 duration: 0.6,
                 ease: "power3.in",
