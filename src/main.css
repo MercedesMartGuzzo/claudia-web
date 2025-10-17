@@ -75,7 +75,7 @@ body{overflow-x: hidden
 
 .mannager {
     background-color: var(--clr-back);
-    z-index: 2;
+
 }
 
 .mannager .section-title {
@@ -86,18 +86,19 @@ body{overflow-x: hidden
 .cellista {
     background-color: var(--cl-back3);
     min-height: 100vh; 
-    z-index: 3;
-
+  
 }
 
 .cellista .section-title {
-    color: var(--clr-title);
+/*     color: var(--clr-title); */
+    color: var(--clr-back);
+
 }
 
 .produccion {
     background-color: var(--clr-back2);
     min-height: 100vh;
-    z-index: 3;
+  
     position: relative;
    
 }
@@ -110,12 +111,12 @@ body{overflow-x: hidden
 .bio {
     background-color: var(--cl-back3);
     min-height: 100vh;
-    z-index: 3;
+   
 }
 
 .contacto {
     background-color: var(--clr-title);
     min-height: 100vh;
-    z-index: 3;
+  
     position: relative;
 }

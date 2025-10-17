@@ -1,44 +1,85 @@
-.cellista {
-  position: relative;
-  overflow: hidden;
+  .cellista .section-title {
+    color: var(--clr-back);
+    margin-inline-start: 2rem;  
 
-  height: 100vh; /* la altura visible del scroll horizontal */
+  }
+  .cellista{
+  padding: 0;
+  justify-content: center;
+  background-color: white;
+margin: 1rem;
+height: auto;
 }
-
-.photo-grid {
+.panel-flex {
   display: flex;
   flex-wrap: nowrap;
-  height:auto;
-  gap: 1rem
+  align-items: stretch;
+  gap: 1rem;
+  height: 60vh; 
+  overflow: visible;
 }
 
-.photo-grid div {
- /*  flex: 0 0 100vw; /* cada */ 
+/* mantengo tu subcontainer */
+.panel-subcontainer {
+  padding-top: 0rem;
+}
+
+/* panels: por defecto ancho 30% excepto el primero */
+.panel {
+  flex: 0 0 auto; /* no crecer ni encoger automáticamente */
+ /*  width: 30%; */
   display: flex;
-  justify-content: center;
   align-items: center;
-}
-
-.photo-grid img {
-  width: 600px;
+  justify-content: center;
   height: 100%;
-  object-fit: cover;
+  position: relative;
+  padding-top: 3rem;
+}
+
+/* primer panel más ancho */
+.panel:first-child {
+/*   width: 50%; */
+}
+
+/* imágenes dentro del panel */
+.panel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   
+  object-position: center;  
+  max-height: 230px;  
+aspect-ratio: 1 / 1;
+  display: block;
+  user-select: none;
+  border-radius: 5px;
+}
+.panel .photo-a{
+  object-position: 0 20%;
+}
+
+ .awareness {
+  position: relative;
+   min-height: 100vh; 
+  width: 100%;
+  overflow: visible; 
 }
 
 
-@media (max-width: 1023px) {
-  .horizontal-section {
+@media (max-width: 768px) {
+  .panel-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: auto;
-    overflow: visible;
+    gap: 1;
   }
-
-  .photo-grid {
-    display: block;
-  }
-
-  .photo-grid div {
-    flex: none;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
+.panel{
+  padding-top: 0;
 }
+  .panel img {
+    min-height: 100%;
+  }
+.cellista{
+  margin: 1rem;
+}
+}
+
