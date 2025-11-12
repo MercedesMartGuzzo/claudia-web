@@ -27,9 +27,11 @@
 *::after {
     box-sizing: border-box;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 img {
     max-width: 100%;
 }
@@ -52,8 +54,9 @@ img {
 
 }
 
-body{overflow-x: hidden
-    ;}
+body {
+    overflow-x: hidden;
+}
 
 .section-title {
     font-family: var(--ff-inconsolata);
@@ -85,22 +88,18 @@ body{overflow-x: hidden
 
 .cellista {
     background-color: var(--cl-back3);
-    min-height: 100vh; 
-  
+    min-height: 100vh;
+
 }
 
 .cellista .section-title {
-/*     color: var(--clr-title); */
     color: var(--clr-back);
-
 }
 
 .produccion {
     background-color: var(--clr-back2);
     min-height: 100vh;
-  
     position: relative;
-   
 }
 
 
@@ -111,12 +110,12 @@ body{overflow-x: hidden
 .bio {
     background-color: var(--cl-back3);
     min-height: 100vh;
-   
+
 }
 
 .contacto {
     background-color: var(--clr-title);
     min-height: 100vh;
-  
+
     position: relative;
 }

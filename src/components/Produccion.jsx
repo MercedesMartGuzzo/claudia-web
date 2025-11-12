@@ -6,34 +6,35 @@ const itemsData = [
     {
         title: "Ismael Serrano Sinfónico",
         info: "Movistar Arena, Buenos Aires Argentina 2025.",
-        color: "#43AA8B",
+        color: "var(--clr-back2)", /* "#43AA8B", */
         image: "sinfonico-ismael.jpg"
     },
     {
         title: "Cuarteto de Cuerdas Nito Mestre",
         info: "Buenos Aires, Argentina 2012 y 2024",
-        color: "#43AA8B",
+        color: "var(--clr-back2)", /* "#43AA8B", */
         image: "cuarteto-nito.jpg"
     },
     {
         title: "Cuarteto de Cuerdas Ismael Serrano",
         info: "Buenos Aires, Argentina 2024",
-        color: "#43AA8B"
+        color: "var(--clr-back2)", /* "#43AA8B", */
     },
     {
         title: "Grabación Ismael Serrano Sinfónico",
         info: "Buenos Aires, Argentina 2023",
-        color: "#43AA8B"
+        color: "var(--clr-back2)", /* "#43AA8B", */
     },
     {
         title: "Ensamble Seda – Utopía Pedro Aznar / Ramiro Gallo",
         info: "Buenos Aires, Argentina 2019",
-        color: "#43AA8B"
+        color: "var(--clr-back2)", /* "#43AA8B", */
+        image: "aznar-gallo.jpg"
     },
     {
         title: "Raúl Barboza + Ramiro Gallo Ensamble",
         info: "Lorem ipsum dolor sit amet.",
-        color: "#43AA8B",
+        color: "var(--clr-back2)", /* "#43AA8B", */
         image: "barboza-ramiro.jpg"
     }
 ];
@@ -41,93 +42,157 @@ const itemsData = [
 export default function Produccion() {
     const itemsRef = useRef([]);
 
-    useEffect(() => {
-        itemsRef.current.forEach((el, index) => {
-            if (!el) return;
+useEffect(() => {
+  const items = itemsRef.current;
+  if (!items) return;
 
-            const p = el.querySelector("p");
-            const img = el.querySelector("img");
-            const extra = el.querySelector(".produccion-extra");
+  const overlay = document.createElement("div");
+  overlay.classList.add("produccion-overlay");
+  document.body.appendChild(overlay);
 
-            // Estado inicial
-            gsap.set(p, { height: 0, opacity: 0, overflow: "hidden" });
-            gsap.set(img, { scaleY: 0, opacity: 0, transformOrigin: "top center" });
-            gsap.set(el, { height: 150 });
-            gsap.set(extra, { borderLeft: "0px solid var(--clr-back)" });
-            gsap.set(p, { borderTop: "0px solid var(--clr-back)" });
+  let activeItem = null;
+  let expanded = false;
+  const positions = new WeakMap();
 
-            let expanded = false;
+  // guardamos handlers para luego removerlos correctamente
+  const listeners = [];
 
-            const toggle = () => {
-                const isMobile = window.innerWidth < 768;
+  const toggle = (el) => {
+    const p = el.querySelector("p");
+    const img = el.querySelector("img");
+    const extra = el.querySelector(".produccion-extra");
+    const isMobile = window.innerWidth < 768;
 
-                if (!expanded) {
+    if (!expanded || activeItem !== el) {
+      if (activeItem && activeItem !== el) resetCard(activeItem);
 
-                    itemsRef.current.forEach((other, i) => {
-                        if (other && i !== index && other.classList.contains("expanded")) {
-                            const op = other.querySelector("p");
-                            const oimg = other.querySelector("img");
-                            const oextra = other.querySelector(".produccion-extra");
+      // guardar posición original ANTES de fijar
+      const rect = el.getBoundingClientRect();
+      positions.set(el, rect);
 
-                            gsap.to(other, {
-                                height: 150,
-                                backgroundColor: other.dataset.color,
-                                duration: 0.5,
-                                ease: "power2.inOut",
-                            });
-                            gsap.to(op, { height: 0, opacity: 0, duration: 0.5, ease: "power2.inOut" });
-                            gsap.to(oimg, { scaleY: 0, opacity: 0, duration: 0.5, ease: "power2.inOut" });
-                            gsap.set(oextra, { borderLeft: "0px solid var(--clr-back)" });
-                            gsap.set(op, { borderTop: "0px solid var(--clr-back)" });
-                            other.classList.remove("expanded");
-                            other.dataset.expanded = "false";
-                        }
-                    });
+      gsap.set(el, {
+        position: "fixed",
+        top: rect.top,
+        left: rect.left,
+        width: rect.width,
+        height: rect.height,
+        zIndex: 1000,
+      });
 
-                    // 🟢 Expandir tarjeta actual
-                    gsap.set(p, { height: "auto", opacity: 1 });
-                    gsap.set(img, { scaleY: 1, opacity: 1 });
-                    const targetHeight = el.scrollHeight;
+      overlay.classList.add("active");
+      el.classList.add("expanded");
+      activeItem = el;
+      expanded = true;
 
-                    gsap.to(el, {
-                        height: targetHeight,
-                        backgroundColor: "#77B0AA",
-                        duration: 0.6,
-                        ease: "power2.out",
-                        onComplete: () => gsap.set(el, { height: "auto" }),
-                    });
+      const targetWidth = Math.min(window.innerWidth * 0.8, 700);
+      const targetHeight = Math.min(window.innerHeight * 0.8, 400);
 
-                    if (!isMobile) {
-                        gsap.to(extra, { borderLeft: "1px solid var(--clr-back)", duration: 0.3 });
-                    } else {
-                        gsap.to(p, { borderTop: "1px solid var(--clr-back)", duration: 0.3 });
-                    }
+      gsap.to(el, {
+        top: window.innerHeight / 2 - targetHeight / 2,
+        left: window.innerWidth / 2 - targetWidth / 2,
+        width: targetWidth,
+        height: targetHeight,
+        borderRadius: 12,
+        backgroundColor: "#77B0AA",
+        boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+        duration: 0.7,
+        ease: "power3.inOut",
+      });
 
-                    gsap.to(img, { scaleY: 1, opacity: 1, duration: 0.5, ease: "power2.out" });
-                    el.classList.add("expanded");
-                    expanded = true;
-                } else {
+      gsap.to(img, { scaleY: 1, opacity: 1, duration: 0.5, delay: 0.1 });
+      gsap.to(p, { height: "auto", opacity: 1, duration: 0.5, delay: 0.1 });
 
-                    gsap.to(el, {
-                        height: 150,
-                        backgroundColor: el.dataset.color,
-                        duration: 0.5,
-                        ease: "power2.inOut",
-                    });
-                    gsap.to(p, { height: 0, opacity: 0, duration: 0.5 });
-                    gsap.to(img, { scaleY: 0, opacity: 0, duration: 0.5 });
-                    gsap.set(extra, { borderLeft: "0px solid var(--clr-back)" });
-                    gsap.set(p, { borderTop: "0px solid var(--clr-back)" });
+      if (!isMobile)
+        gsap.to(extra, { borderLeft: "1px solid var(--clr-title)", duration: 0.3 });
+      else gsap.to(p, { borderTop: "1px solid var(--clr-title)", duration: 0.3 });
+    } else {
+      resetCard(el);
+    }
+  };
 
-                    el.classList.remove("expanded");
-                    expanded = false;
-                }
-            };
+  const resetCard = (el) => {
+    const rect = positions.get(el);
+    if (!rect) return;
 
-            el.addEventListener("click", toggle);
-            return () => el.removeEventListener("click", toggle);
+    const p = el.querySelector("p");
+    const img = el.querySelector("img");
+    const extra = el.querySelector(".produccion-extra");
+
+    overlay.classList.remove("active");
+    el.classList.remove("expanded");
+    expanded = false;
+    activeItem = null;
+
+    gsap.to(el, {
+      top: rect.top,
+      left: rect.left,
+      width: rect.width,
+      height: rect.height,
+      borderRadius: 0,
+      backgroundColor: el.dataset.color,
+      boxShadow: "none",
+      duration: 0.6,
+      ease: "power3.inOut",
+      onComplete: () => {
+        // restauramos al flujo normal del documento
+        gsap.set(el, {
+          position: "relative",
+          top: "auto",
+          left: "auto",
+          width: "100%",
+          height: 150,
+          zIndex: 1,
         });
-    }, []);
+      },
+    });
+
+    gsap.to(p, { height: 0, opacity: 0, duration: 0.4 });
+    gsap.to(img, { scaleY: 0, opacity: 0, duration: 0.4 });
+    gsap.set(extra, { borderLeft: "0px solid var(--clr-back)" });
+    gsap.set(p, { borderTop: "0px solid var(--clr-back)" });
+  };
+
+  // registrar listeners y guardarlos
+  items.forEach((el) => {
+    gsap.set(el.querySelector("p"), { height: 0, opacity: 0, overflow: "hidden" });
+    gsap.set(el.querySelector("img"), {
+      scaleY: 0,
+      opacity: 0,
+      transformOrigin: "top center",
+    });
+    gsap.set(el, { height: 150 });
+
+    const handler = () => toggle(el);
+    el.addEventListener("click", handler);
+    listeners.push({ el, handler });
+  });
+
+  // overlay click cierra
+  const overlayHandler = () => {
+    if (expanded && activeItem) resetCard(activeItem);
+  };
+  overlay.addEventListener("click", overlayHandler);
+  listeners.push({ el: overlay, handler: overlayHandler });
+
+  // cleanup correcto — usamos las referencias guardadas
+  return () => {
+    // quitar listeners
+    listeners.forEach(({ el, handler }) => {
+      try {
+        el.removeEventListener("click", handler);
+      } catch (e) {}
+    });
+    // remover overlay del DOM si sigue
+    try {
+      const existing = document.querySelector(".produccion-overlay");
+      if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+    } catch (e) {}
+  };
+}, []);
+
+
+
+
 
     return (
         <div>
