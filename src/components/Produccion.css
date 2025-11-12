@@ -20,7 +20,7 @@
 .produccion-item {
     width: 100%;
     /*   border-radius: 12px; */
-       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 2rem 1.5rem;
     color: var(--clr-title);
     position: relative;
@@ -48,6 +48,7 @@
     /*   transform: scale(1.02); */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     background-color: #77B0AA;
+
 }
 
 
@@ -80,18 +81,18 @@
 }
 
 .produccion-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 900;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 900;
 }
 
 .produccion-overlay.active {
-  opacity: 1;
-  pointer-events: all;
+    opacity: 1;
+    pointer-events: all;
 }
 
 
@@ -119,7 +120,7 @@
     .produccion-extra {
         display: flex;
         flex-direction: column;
-            padding-left: 1rem;
+        padding-left: 1rem;
         align-items: center;
         gap: 0rem;
         padding-bottom: .3rem;
@@ -133,9 +134,11 @@
         display: grid;
         justify-self: end;
     }
-    .produccion-item:first-child img {
-  height: 280px;   /* más chica que las demás */
 
-}
+    .produccion-item:first-child img {
+        height: 280px;
+        /* más chica que las demás */
+
+    }
 
 }

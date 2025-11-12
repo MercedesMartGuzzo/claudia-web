@@ -85,7 +85,7 @@ useEffect(() => {
       expanded = true;
 
       const targetWidth = Math.min(window.innerWidth * 0.8, 700);
-      const targetHeight = Math.min(window.innerHeight * 0.8, 400);
+      const targetHeight = Math.min(window.innerHeight * 0.8, 500);
 
       gsap.to(el, {
         top: window.innerHeight / 2 - targetHeight / 2,
