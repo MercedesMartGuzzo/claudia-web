@@ -18,6 +18,8 @@
   width: 100%;
   overflow: hidden;
   border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .panel.vertical {
@@ -29,6 +31,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  
 }
 .panel::after {
   content: attr(data-text);
@@ -44,17 +47,24 @@
   opacity: 0;
   transition: opacity 0.4s ease;
   text-align: center;
-  padding: 1rem;
+  padding: 1rem; 
+  transform: translateY(30px); /* comienza más abajo */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  
 }
 
 /* Efecto al hacer hover */
 .panel:hover img {
   filter: blur(4px) brightness(0.7);
-  transform: scale(1.05);
+   
 }
-
+.panel:hover {
+  transform: scale(1.05); 
+}
 .panel:hover::after {
   opacity: 1;
+  transform: translateY(0); /* vuelve a su posición original */
+
 }
 
 @media (max-width: 768px) {
@@ -65,4 +75,10 @@
   .panel.vertical {
     grid-row: span 1; 
   }
+ .panel::after {
+  font-size: .8rem;
+  .panel:hover {
+  transform: scale(1.1); 
+}
+} 
 }
