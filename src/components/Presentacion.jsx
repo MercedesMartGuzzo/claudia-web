@@ -27,6 +27,18 @@ export default function Presentacion() {
       }
     });
 
+    // Animación del background con efecto radial
+ /*    gsap.to(".presentacion", {
+      "--radius": "150%",
+      scrollTrigger: {
+        trigger: ".presentacion",
+        start: "top center",
+        end: "bottom center",
+        scrub: 1.5,
+        markers: false,
+      },
+    }); */
+
     // Animación general (solo para palabras normales)
     gsap.to(split.words, {
       color: "#003C43",
@@ -51,6 +63,7 @@ export default function Presentacion() {
 
     return () => split.revert();
   }, []);
+
 
 
 

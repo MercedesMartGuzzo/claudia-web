@@ -48,7 +48,6 @@
     /*   transform: scale(1.02); */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     background-color: #77B0AA;
-
 }
 
 
@@ -106,17 +105,17 @@
 
     .produccion-item {
         width: 100%;
-        /*  padding: 2rem; */
+
         flex: 1 1 calc(50% - 1rem);
     }
 
-    .produccion-content {
+    /*    .produccion-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 1rem;
 
     }
-
+ */
     .produccion-extra {
         display: flex;
         flex-direction: column;
@@ -136,9 +135,15 @@
     }
 
     .produccion-item:first-child img {
-        height: 280px;
-        /* más chica que las demás */
-
+      height: 300px;
+        object-fit: contain;
     }
-
+  .produccion-item:nth-child(2) img {
+        height: 280px;
+        object-position: contain;
+    }
+    .produccion-item:nth-child(n+4) img {
+        height: 320px;
+        object-position: contain;
+    }
 }
